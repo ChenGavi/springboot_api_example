@@ -1,6 +1,7 @@
 # springboot_api_example
 
-
+Prerequisite: Java 11.0.9, Gradle 6.5.1-all
+Reference: https://www.youtube.com/watch?v=Kc3Vw5vk1Lw
 1. Running a Spring Boot application in Docker
       1. Add Dockerfile and modify build.gradle
        
@@ -10,6 +11,12 @@
 
 2. Pushing to Docker Hub
 
+       ./gradlew dockerPush
+
 3. Configuring Jenkins to be able to run Docker in Docker
+
+
+
+
 
 4. Building the Docker spring Boot API application in Jenkins
