@@ -47,7 +47,6 @@ public class ThemeParkApplicationIT {
                 .andExpect(status().isNotFound())
                 .andReturn();
     }
-
     @Test
     public void addNewRide() throws Exception {
         String newRide = "{\"name\":\"Monorail\",\"description\":\"Sedate travelling ride.\",\"thrillFactor\":2,\"vomitFactor\":1}";
@@ -57,7 +56,6 @@ public class ThemeParkApplicationIT {
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andReturn();
-
     }
 
 }
