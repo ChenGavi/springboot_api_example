@@ -1,6 +1,7 @@
 # Created by .ignore support plugin (hsz.mobi)
 # Ignore Gradle project-specific cache directory
 .gradle
+.idea
 
 # Ignore Gradle build output directory
 build
