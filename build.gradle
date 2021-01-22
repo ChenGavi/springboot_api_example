@@ -3,6 +3,8 @@ plugins {
     id 'io.spring.dependency-management' version "1.0.10.RELEASE"
     id 'org.springframework.boot' version '2.4.1'
     id 'pl.allegro.tech.build.axion-release' version '1.12.1'
+    id 'com.palantir.docker' version '0.25.0'
+    id 'com.palantir.docker-run' version '0.25.0'
 }
 
 group 'org.example'
@@ -36,4 +38,13 @@ test {
     useJUnitPlatform()
 }
 
-//project.version = scmVersion.version
+project.version = scmVersion.version
+
+// Prepare to Run in Docker
+String imageName = "chengavin/springboot_api_example:$version"
+
+docker {
+    name imageName
+    files "build/libs/${bootJar.archiveFileName.get()}"
+    buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
+}
