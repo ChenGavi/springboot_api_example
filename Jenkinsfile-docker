@@ -21,7 +21,7 @@ pipeline {
                 sh './gradlew docker'
             }
         }
-        step ('Push Docker Image'){
+        stage ('Push Docker Image'){
             environment {
                 DOCKER_HUB_LOGIN = credentials('docker-hub')
             }
