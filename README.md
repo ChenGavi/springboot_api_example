@@ -2,6 +2,7 @@
 
 Prerequisite: Java 11.0.9, Gradle 6.5.1-all
 Reference: https://www.youtube.com/watch?v=Kc3Vw5vk1Lw
+            https://tomgregory.com/building-a-spring-boot-application-in-docker-and-jenkins/
 1. Running a Spring Boot application in Docker
       1. Add Dockerfile and modify build.gradle
        
