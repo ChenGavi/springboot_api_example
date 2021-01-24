@@ -41,7 +41,8 @@ test {
 project.version = scmVersion.version
 
 // Prepare to Run in Docker
-String imageName = "chengavin/springboot_api_example:$version"
+String dockerHubUsernameProperty = findProperty('dockerHubUsername') ?: 'chengavin'
+String imageName = "${dockerHubUsernameProperty}/springboot_api_example:$version"
 
 docker {
     name imageName
