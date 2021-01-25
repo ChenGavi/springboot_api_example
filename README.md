@@ -15,9 +15,12 @@ Reference: https://www.youtube.com/watch?v=Kc3Vw5vk1Lw
        ./gradlew dockerPush
 
 3. Configuring Jenkins to be able to run Docker in Docker
+    
+    Do not forget cancel docker in part 1 & 2
 
-
-
-
+       ./gradlew docker dockerRun
+      To double check you can run Docker in Docker, run 
+             
+        docker exec jenkins-demo docker ps
 
 4. Building the Docker spring Boot API application in Jenkins
