@@ -24,3 +24,7 @@ Reference: https://www.youtube.com/watch?v=Kc3Vw5vk1Lw
         docker exec jenkins-demo docker ps
 
 4. Building the Docker spring Boot API application in Jenkins
+
+       update Jenkinsfile to Jenkinsfile-docker
+       Adding the new Docker job definition in createJob.groovy
+       ./gradlew docker dockerRun
