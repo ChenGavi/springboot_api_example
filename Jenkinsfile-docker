@@ -22,9 +22,6 @@ pipeline {
             }
         }
         stage ('Push Docker Image'){
-            environment {
-                DOCKER_HUB_LOGIN = credentials('docker-hub')
-            }
             steps {
                 sh 'docker login --username=chengavin --password=R2t44ca1'
                 sh './gradlew dockerPush'
