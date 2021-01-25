@@ -5,12 +5,13 @@ plugins {
     id 'pl.allegro.tech.build.axion-release' version '1.12.1'
     id 'com.palantir.docker' version '0.25.0'
     id 'com.palantir.docker-run' version '0.25.0'
+    id "jp.classmethod.aws.cloudformation" version "0.41"
 }
 
 group 'org.example'
 version '1.0-SNAPSHOT'
 
-sourceCompatibility = 1.8
+sourceCompatibility = 11
 
 repositories {
     mavenCentral()
@@ -56,4 +57,21 @@ dockerRun {
     image imageName
     ports '9000:8080'
     clean true
+}
+
+import com.amazonaws.services.cloudformation.model.Capability
+
+aws {
+    region = findProperty('region') ?: 'us-east-1'
+}
+
+cloudFormation {
+    stackName "$project.name-stack"
+    stackParams([
+            SubnetID: findProperty('subnetId') ?: '',
+            ServiceName: project.name,
+            ServiceVersion: project.version,
+            DockerHubUsername: dockerHubUsernameProperty
+    ])
+    templateFile project.file("ecs.yml")
 }
