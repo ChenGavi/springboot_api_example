@@ -42,13 +42,12 @@ project.version = scmVersion.version
 
 // Prepare to Run in Docker
 String dockerHubUsernameProperty = findProperty('dockerHubUsername') ?: 'chengavin'
-String imageName = "${dockerHubUsernameProperty}/springboot_api_example:${project.version}"
+String imageName = "${dockerHubUsernameProperty}/springboot_api_example:$version"
 
 docker {
     name imageName
     files "build/libs/${bootJar.archiveFileName.get()}"
     buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
-    tag 'DockerHub', "chengavin/${bootJar.archiveFileName.get()}:${project.version}"
 }
 
 dockerRun {
